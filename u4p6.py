@@ -13,13 +13,13 @@ class DQ:
 
     def  delete_from_front(self):
         if not self.isEmpty():
-            return self.dq.pop()
+            return self.dq.pop(0)
         else:
             print('Underflow')
 
     def delete_from_back(self):
         if not self.isEmpty():
-            return  self.dq.pop(0)
+            return  self.dq.pop()
         else:
             print('Underflow')
     def  display(self):
