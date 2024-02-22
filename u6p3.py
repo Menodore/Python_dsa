@@ -26,7 +26,7 @@ class ATM:
         amt = int(input("Enter the total amount you wish to enter: "))
         n = [0, 0, 0, 0]
         if amt >= 2000:
-            n[0] = int(input('Enter the number of 2000 notes: '))
+            n[0] = int(input(f'Enter the number of 2000 notes({amt//2000} at max): '))
             if n[0]*2000 <= amt:
                 amt -= 2000 * n[0]
                 if amt == 0:
@@ -40,8 +40,8 @@ class ATM:
             else:
                 print('The notes exceed the amount you want to enter')
                 return 
-        if amt%500 != 0 and  amt >= 500:
-            n[1] = int(input('Enter the number of 500 notes: '))
+        if amt >= 500:
+            n[1] = int(input(f'Enter the number of 500 notes({amt//500} at max): '))
             if n[1]*500 <= amt:
                 amt -= 500 * n[1]
                 if amt == 0:
@@ -55,8 +55,8 @@ class ATM:
             else: 
                 print('The notes exceed the amount you want to enter')
                 return
-        if amt%200!=0 and amt >= 200:
-            n[2] = int(input('Enter the number of 200 notes: '))
+        if amt >= 200:
+            n[2] = int(input(f'Enter the number of 200 notes({amt//200} at max): '))
             if n[2]*200 <= amt:
                 amt -= 200 * n[2]
                 if amt == 0:
@@ -70,8 +70,8 @@ class ATM:
             else: 
                 print('The notes exceed the amount you want to enter')
                 return 
-        if amt %100 != 0 and amt >= 100:
-            n[3] = int(input('Enter the number of 100 notes: '))
+        if amt >= 100:
+            n[3] = int(input(f'Enter the number of 100 notes: ({amt//100} at max)'))
             if n[3]*100 == amt:
                 self.money['2000'] += n[0]
                 self.money['500'] += n[1]
@@ -104,7 +104,7 @@ class ATM:
     
 atm = ATM()
 def Menu():
-    print('ENTER 1 to automatically load to atm\nEnter 2 to manually load\nEnter 3 to withdraw\nEnter 4 to see ATM status \nEnter 5 to exit')
+    print('Enter 1 to automatically load to atm\nEnter 2 to manually load\nEnter 3 to withdraw\nEnter 4 to see ATM status \nEnter 5 to exit')
 
 while True:
     try:
@@ -123,4 +123,4 @@ while True:
         elif a ==5:
             break
     except:
-        print('SOmething went wrong')
+        print('Something went wrong')
